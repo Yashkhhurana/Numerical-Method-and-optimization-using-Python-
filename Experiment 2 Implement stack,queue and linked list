@@ -1,0 +1,130 @@
+# Stack 
+
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        else:
+            raise IndexError("Stack is empty")
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+        else:
+            raise IndexError("Stack is empty")
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+# Example usage
+stack = Stack()
+stack.push(10)
+stack.push(20)
+print(stack.peek())  # Output: 20
+print(stack.pop())   # Output: 20
+print(stack.is_empty())  # Output: False
+
+
+# Queue 
+
+from collections import deque
+
+class Queue:
+    def __init__(self):
+        self.queue = deque()
+
+    def enqueue(self, item):
+        self.queue.append(item)
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.popleft()
+        else:
+            raise IndexError("Queue is empty")
+
+    def peek(self):
+        if not self.is_empty():
+            return self.queue[0]
+        else:
+            raise IndexError("Queue is empty")
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+# Example usage
+queue = Queue()
+queue.enqueue(10)
+queue.enqueue(20)
+print(queue.peek())  # Output: 10
+print(queue.dequeue())  # Output: 10
+print(queue.is_empty())  # Output: False
+
+# Linked list 
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+        else:
+            last_node = self.head
+            while last_node.next:
+                last_node = last_node.next
+            last_node.next = new_node
+
+    def prepend(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def insert_after_node(self, prev_node, data):
+        if not prev_node:
+            print("Previous node is not in the list")
+            return
+        new_node = Node(data)
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+
+    def delete_node(self, key):
+        if self.head is None:
+            return
+        if self.head.data == key:
+            self.head = self.head.next
+            return
+        temp = self.head
+        while temp.next is not None:
+            if temp.next.data == key:
+                temp.next = temp.next.next
+                return
+            temp = temp.next
+
+    def print_list(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end=" ")
+            temp = temp.next
+
+if __name__ == '__main__':
+    llist = LinkedList()
+    llist.append(6)
+    llist.append(7)
+    llist.prepend(1)
+    llist.insert_after_node(llist.head.next, 8)
+    llist.print_list()  # Output: 1 6 8 7
+    llist.delete_node(6)
+    print("\n")
+    llist.print_list()  # Output: 1 8 7
