@@ -1,0 +1,128 @@
+print("-----Python basic-----")
+print("\n ")
+
+x = 22         # integer    
+y = "Yash"     # string 
+print(x)       #print statement 
+print(y)
+
+# single comment
+
+''' 
+helo
+helo 
+helo
+'''
+
+print("\n ")
+print("\n ")
+
+print("-----Data types------ ")
+print("\n ")
+
+x = 20
+
+#display x:
+print(x)
+
+#display the data type of x:
+print(type(x))
+
+print("\n ")
+
+# Data Types 
+x = 20.5
+
+#display x:
+print(x)
+
+#display the data type of x:
+print(type(x)) 
+
+print("\n ")
+
+x = "Hello World"
+
+#display x:
+print(x)
+
+#display the data type of x:
+print(type(x))
+print("\n ")
+
+
+x = ["apple", "banana", "cherry"]
+
+#display x:
+print(x)
+
+#display the data type of x:
+print(type(x)) 
+print("\n ")
+
+x = ("apple", "banana", "cherry")
+
+#display x:
+print(x)
+
+#display the data type of x:
+print(type(x)) 
+
+print("\n ")
+
+print("-----control structure-----")
+print("\n ")
+# while loop 
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+  print("\n ")
+  
+  # for loop 
+  fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
+  print("\n ")
+  
+  # if elif else
+  a = 200
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+else:
+  print("a is greater than b")
+  print("\n ")
+  
+  print("-----Function-----")
+print("\n ")
+
+  # Function Call
+def my_function(country = "Norway"):
+  print("I am from " + country)
+
+my_function("Sweden")
+my_function("India")
+my_function()
+my_function("Brazil")  
+print("\n ")
+
+# Return function 
+def my_function(x):
+  return 5 * x
+
+print(my_function(3))
+print(my_function(5))
+print(my_function(9))
+print("\n ")
+
+# Default function 
+def my_function(country = "Norway"):
+  print("I am from " + country)
+
+my_function("Sweden")
+my_function("India")
+my_function()
+my_function("Brazil")
