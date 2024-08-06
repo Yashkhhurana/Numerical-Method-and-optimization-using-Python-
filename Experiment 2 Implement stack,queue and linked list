@@ -1,4 +1,6 @@
+
 # Stack 
+print("------- Stack --------------\n")
 
 class Stack:
     def __init__(self):
@@ -30,7 +32,7 @@ print(stack.peek())  # Output: 20
 print(stack.pop())   # Output: 20
 print(stack.is_empty())  # Output: False
 
-
+print("\n---------Queue------------\n")
 # Queue 
 
 from collections import deque
@@ -64,6 +66,8 @@ queue.enqueue(20)
 print(queue.peek())  # Output: 10
 print(queue.dequeue())  # Output: 10
 print(queue.is_empty())  # Output: False
+
+print("\n-------Linked list ---------\n")
 
 # Linked list 
 
@@ -128,3 +132,4 @@ if __name__ == '__main__':
     llist.delete_node(6)
     print("\n")
     llist.print_list()  # Output: 1 8 7
+     
