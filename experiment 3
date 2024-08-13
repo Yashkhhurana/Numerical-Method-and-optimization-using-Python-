@@ -1,0 +1,67 @@
+import math
+
+def bisection(f, a, b, tol=1e-6, max_iter=100):
+  """
+  Finds a root of the function f using the bisection method.
+
+  Args:
+    f: The function to find the root of.
+    a: The left endpoint of the interval.
+    b: The right endpoint of the interval.
+    tol: The tolerance for the root.
+    max_iter: The maximum number of iterations.
+
+  Returns:
+    The approximate root of the function.
+  """
+
+  if f(a) * f(b) >= 0:
+    print("Bisection method fails. No root in the given interval.")
+    return None
+
+  for i in range(max_iter):
+    c = (a + b) / 2
+    if abs(f(c)) < tol:
+      return c
+    if f(c) * f(a) < 0:
+      b = c
+    else:
+      a = c
+  print("Maximum iterations reached without convergence.")
+  return None
+
+def newton_raphson(f, df, x0, tol=1e-6, max_iter=100):
+  """
+  Finds a root of the function f using the Newton-Raphson method.
+
+  Args:
+    f: The function to find the root of.
+    df: The derivative of the function.
+    x0: The initial guess for the root.
+    tol: The tolerance for the root.
+    max_iter: The maximum number of iterations.
+
+  Returns:
+    The approximate root of the function.
+  """
+
+  for i in range(max_iter):
+    x1 = x0 - f(x0) / df(x0)
+    if abs(x1 - x0) < tol:
+      return x1
+    x0 = x1
+  print("Maximum iterations reached without convergence.")
+  return None
+
+# Example usage
+def f(x):
+  return x**2 - 2
+
+def df(x):
+  return 2 * x
+
+root_bisection = bisection(f, 1, 2)
+root_newton = newton_raphson(f, df, 1.5)
+
+print("Bisection method:", root_bisection)
+print("Newton-Raphson method:", root_newton)
