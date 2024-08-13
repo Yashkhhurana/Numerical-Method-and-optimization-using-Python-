@@ -1,0 +1,22 @@
+def secant(f, x0, x1, tol=1e-6, max_iter=100):
+  """
+  Finds a root of the function f using the secant method.
+
+  Args:
+    f: The function to find the root of.
+    x0: The first initial guess.
+    x1: The second initial guess.
+    tol: The tolerance for the root.
+    max_iter: The maximum number of iterations.
+
+  Returns:
+    The approximate root of the function.
+  """
+
+  for i in range(max_iter):
+    x2 = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))
+    if abs(x2 - x1) < tol:
+      return x2
+    x0, x1 = x1, x2
+  print("Maximum iterations reached without convergence.")
+  return None
