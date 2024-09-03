@@ -1,0 +1,52 @@
+import numpy as np
+from scipy.interpolate import interp1d
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [2, 8, 18, 32, 50]
+
+# Create an interpolation function
+f = interp1d(x, y, kind='linear')
+
+# Generate x values for interpolation
+x_interp = np.linspace(1, 5, 100)
+
+# Interpolate y values
+y_interp = f(x_interp)
+
+# Plot the original data points and the linearly interpolated curve
+plt.plot(x, y, 'bo', label='Original data')
+plt.plot(x_interp, y_interp, 'r-', label='Linear interpolation')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Linear Interpolation')
+plt.legend()
+plt.show()
+
+
+
+
+import numpy as np
+from scipy.interpolate import interp1d
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [2, 8, 18, 32, 50]
+
+# Create an interpolation function
+f = interp1d(x, y, kind='cubic')
+
+# Generate x values for interpolation
+x_interp = np.linspace(1, 5, 100)
+
+# Interpolate y values
+y_interp = f(x_interp)
+
+# Plot the original data points and the cubic spline interpolated curve
+plt.plot(x, y, 'bo', label='Original data')
+plt.plot(x_interp, y_interp, 'g-', label='Cubic spline interpolation')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Cubic Spline Interpolation')
+plt.legend()
+plt.show()
