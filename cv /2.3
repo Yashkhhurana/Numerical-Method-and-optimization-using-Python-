@@ -29,3 +29,86 @@ for i in range(6):
     plt.title(titles[i])
     plt.axis('off')
 plt.show()
+
+
+
+
+import cv2
+
+import numpy as np
+
+import matplotlib.pyplot as plt
+
+ 
+
+# Load the input image in grayscale
+
+image = cv2.imread('/content/train img.jpg', cv2.IMREAD_GRAYSCALE)
+
+ 
+
+# Choose the structuring element (kernel)
+
+kernel = np.ones((5, 5), np.uint8)
+
+ 
+
+# Apply Erosion
+
+erosion = cv2.erode(image, kernel, iterations=1)
+
+cv2.imwrite('erosion.jpg', erosion)
+
+ 
+
+# Apply Dilation
+
+dilation = cv2.dilate(image, kernel, iterations=1)
+
+cv2.imwrite('dilation.jpg', dilation)
+
+ 
+
+# Apply Opening
+
+opening = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
+
+cv2.imwrite('opening.jpg', opening)
+
+ 
+
+# Apply Closing
+
+closing = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
+
+cv2.imwrite('closing.jpg', closing)
+
+ 
+
+# Apply Morphological Gradient
+
+gradient = cv2.morphologyEx(image, cv2.MORPH_GRADIENT, kernel)
+
+cv2.imwrite('gradient.jpg', gradient)
+
+ 
+
+# Display the results
+
+titles = ['Original Image', 'Erosion', 'Dilation', 'Opening', 'Closing', 'Gradient']
+
+images = [image, erosion, dilation, opening, closing, gradient]
+
+ 
+
+for i in range(6):
+
+    plt.subplot(2, 3, i+1)
+
+    plt.imshow(images[i], cmap='gray')
+
+    plt.title(titles[i])
+
+    plt.axis('off')
+
+plt.show()
