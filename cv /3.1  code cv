@@ -1,0 +1,14 @@
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+image = cv2.imread('/22.jpg', 0)
+edges = cv2.Canny (image, 100, 200)
+sobel_x = cv2.Sobel(image, cv2.CV_64F, 1, 0, ksize=5)
+sobel_y = cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=5)
+laplacian = cv2.Laplacian (image, cv2.CV_64F)
+plt.figure(figsize=(10, 10))
+plt.subplot(2, 2, 1), plt.imshow(image, cmap='gray'), plt.title('Original Image')
+plt.subplot(2, 2, 2), plt.imshow(edges, cmap='gray'), plt.title('Canny Edges')
+plt.subplot(2, 2, 3), plt.imshow(sobel_x, cmap='gray'), plt.title('Sobel X')
+plt.subplot(2, 2, 4), plt.imshow(laplacian, cmap='gray'), plt.title('Laplacian')
+plt.show()
